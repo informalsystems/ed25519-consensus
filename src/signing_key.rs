@@ -1,5 +1,5 @@
 use core::convert::TryFrom;
-use std::fmt::Formatter;
+use core::fmt::Formatter;
 
 use curve25519_dalek::{constants, scalar::Scalar};
 use rand_core::{CryptoRng, RngCore};
@@ -55,7 +55,7 @@ impl<'de> Deserialize<'de> for SigningKey {
         impl<'de> Visitor<'de> for TupleVisitor {
             type Value = SigningKey;
 
-            fn expecting(&self, formatter: &mut Formatter) -> std::fmt::Result {
+            fn expecting(&self, formatter: &mut Formatter) -> core::fmt::Result {
                 formatter.write_str("an Ed25519 seed key or expanded secret key")
             }
 
